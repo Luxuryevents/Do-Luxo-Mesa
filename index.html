@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Do Luxo à Mesa</title>
 
-  <!-- Fontes (podes trocar se quiseres) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -78,7 +77,7 @@
     }
 
     .logo img {
-      height: 130px; /* troca pelo tamanho do teu logo */
+      height: 130px;
     }
 
     .main-nav {
@@ -108,11 +107,29 @@
       width: 100%;
     }
 
+    /* BOTÃO HAMBURGUER */
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #7b5531;
+      margin: 4px 0;
+    }
+
     /* HERO */
 
     .hero {
       position: relative;
-      margin-top: 90px; /* altura do header */
+      margin-top: 90px;
       height: 80vh;
       min-height: 520px;
       overflow: hidden;
@@ -122,16 +139,16 @@
       position: absolute;
       inset: 0;
       background: url("hero-video-frame.jpg") center center / cover no-repeat;
-      width:100%;
-  
+      width: 100%;
     }
-.hero video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit:cover;
-}
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .hero::before {
       content: "";
@@ -163,7 +180,7 @@
 
     .about {
       padding: 100px 0 80px;
-      background:#b0a498;
+      background: #b0a498;
     }
 
     .about-wrapper {
@@ -244,6 +261,13 @@
       display: flex;
       flex-direction: column;
       border-radius: 0;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     }
 
     .service-image {
@@ -270,85 +294,66 @@
       margin-bottom: 10px;
       color: var(--gold-dark);
       font-weight: 700;
-      
-
     }
 
     .service-desc {
       font-size: 12px;
     }
+
     .service-link {
-  display: block;
-  height: 100%;
-  color: inherit;
-}
-
-.service-card {
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-}
+      display: block;
+      height: 100%;
+      color: inherit;
+    }
 
     /* RODAPÉ */
-footer {
-  background-color: #f3e8dd;
-  padding: 20px 0 15px;
-  text-align: center;
-}
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px; /* menor distância entre texto e ícones */
-}
+    footer {
+      background-color: #f3e8dd;
+      padding: 20px 0 15px;
+      text-align: center;
+    }
 
-footer p {
-  color: #795e46;
-  font-size: 14px;
-  margin: 0;
-}
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
 
-.footer-links {
-  display: inline-flex; /* garante alinhamento central */
-  justify-content: center;
-  align-items: center;
-  gap: 12px; /* espaço entre ícones */
-  line-height: 0; /* remove espaços verticais extras */
-}
+    footer p {
+      color: #795e46;
+      font-size: 14px;
+      margin: 0;
+    }
 
-footer a img {
-  display: block;
-  width: 60px;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
+    .footer-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      line-height: 0;
+    }
 
-footer a img:hover {
-  transform: scale(1.12);
-}
+    footer a img {
+      display: block;
+      width: 60px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
 
-/* Ajuste individual dos ícones */
-footer a img[src*="logo_wpp"] {
-  width: 80px; /* ligeiro aumento */
-}
+    footer a img:hover {
+      transform: scale(1.12);
+    }
 
-footer a[href*="instagram"] img {
-  width: 49px;
-}
+    footer a img[src*="logo_wpp"] {
+      width: 80px;
+    }
 
-
-
-footer p {
-  color: #795e46;
-  font-size: 14px;
-}
-
+    footer a[href*="instagram"] img {
+      width: 49px;
+    }
 
     /* RESPONSIVO */
 
@@ -358,8 +363,23 @@ footer p {
       }
 
       .main-nav {
-        gap: 18px;
-        font-size: 14px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #f7efe6;
+        flex-direction: column;
+        gap: 16px;
+        padding: 12px 20px 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        display: none;
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       .about-card {
@@ -395,9 +415,15 @@ footer p {
   <header class="site-header">
     <div class="header-inner">
       <div class="logo">
-       
         <img src="logo.png" alt="Do Luxo à Mesa" />
       </div>
+
+      <!-- BOTÃO HAMBURGUER -->
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <nav class="main-nav">
         <a href="#quem-somos">Quem somos</a>
@@ -410,9 +436,8 @@ footer p {
   <section class="hero">
     <div class="hero-media">
       <video autoplay muted loop playsinline>
-        <source src="imgs/IMG_2432.MOV" type="video/mp4" />
+        <source src="IMG_2432.MOV" type="video/mp4" />
       </video>
-      
     </div>
 
     <div class="hero-content">
@@ -445,82 +470,97 @@ footer p {
 
       <div class="services-grid">
         <!-- ESSENCE -->
-        <!-- ESSENCE -->
-<article class="service-card">
-  <a href="pacote essence.html" class="service-link">
-    <div class="service-image"
-         style="background-image:url('servico-essence.jpg');"></div>
-    <div class="service-content">
-      <h3 class="service-name">Pacote Essence</h3>
-      <div class="service-price">€ 420,00</div>
-      <p class="service-desc">
-        Uma experiência elegante e prática. Inclui um buffet de 180 peças
-        de finger food gourmet, louça premium decorativa e apresentação
-        cuidada com toques sofisticados. Ideal para eventos intimistas,
-        mantendo o charme e o sabor em formato compacto.
-      </p>
-    </div>
-  </a>
-</article>
+        <article class="service-card">
+          <a href="pacote essence.html" class="service-link">
+            <div class="service-image"
+                 style="background-image:url('servico-essence.jpg');"></div>
+            <div class="service-content">
+              <h3 class="service-name">Pacote Essence</h3>
+              <div class="service-price">€ 420,00</div>
+              <p class="service-desc">
+                Uma experiência elegante e prática. Inclui um buffet de 180 peças
+                de finger food gourmet, louça premium decorativa e apresentação
+                cuidada com toques sofisticados. Ideal para eventos intimistas,
+                mantendo o charme e o sabor em formato compacto.
+              </p>
+            </div>
+          </a>
+        </article>
 
-<!-- SUPREME -->
-<article class="service-card">
-  <a href="pacote supreme.html" class="service-link">
-    <div class="service-image"
-         style="background-image:url('servico-supreme.jpg');"></div>
-    <div class="service-content">
-      <h3 class="service-name">Pacote Supreme</h3>
-      <div class="service-price">€ 680,00</div>
-      <p class="service-desc">
-        Um buffet completo e impactante. Inclui 300 peças de finger food
-        gourmet, louça premium, bebidas de jarro e decoração harmonizada
-        com o ambiente. Perfeito para eventos de médio porte que exigem
-        mais quantidade, elegância e conveniência.
-      </p>
-    </div>
-  </a>
-</article>
+        <!-- SUPREME -->
+        <article class="service-card">
+          <a href="pacote supreme.html" class="service-link">
+            <div class="service-image"
+                 style="background-image:url('servico-supreme.jpg');"></div>
+            <div class="service-content">
+              <h3 class="service-name">Pacote Supreme</h3>
+              <div class="service-price">€ 680,00</div>
+              <p class="service-desc">
+                Um buffet completo e impactante. Inclui 300 peças de finger food
+                gourmet, louça premium, bebidas de jarro e decoração harmonizada
+                com o ambiente. Perfeito para eventos de médio porte que exigem
+                mais quantidade, elegância e conveniência.
+              </p>
+            </div>
+          </a>
+        </article>
 
-<!-- PREMIUM -->
-<article class="service-card">
-   <a href="pacote premium.html" class="service-link">
-    <div class="service-image"
-         style="background-image:url('servico-premium.jpg');"></div>
-    <div class="service-content">
-      <h3 class="service-name">Pacote Premium</h3>
-      <div class="service-price">€ 890,00</div>
-      <p class="service-desc">
-        O pacote de maior impacto. Inclui buffet de 360 cm com 500
-        peças gourmet, bebidas de jarro, gelo seco, máquina de faísca,
-        arranjos florais e dois elementos de staff.
-      </p>
-    </div>
-  </a>
-</article>
+        <!-- PREMIUM -->
+        <article class="service-card">
+          <a href="pacote premium.html" class="service-link">
+            <div class="service-image"
+                 style="background-image:url('servico-premium.jpg');"></div>
+            <div class="service-content">
+              <h3 class="service-name">Pacote Premium</h3>
+              <div class="service-price">€ 890,00</div>
+              <p class="service-desc">
+                O pacote de maior impacto. Inclui buffet de 360 cm com 500
+                peças gourmet, bebidas de jarro, gelo seco, máquina de faísca,
+                arranjos florais e dois elementos de staff.
+              </p>
+            </div>
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- RODAPÉ -->
- <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2025 Do Luxo á Mesa.</p>
-        <div class="footer-links">
-          <a href="https://www.facebook.com/profile.php?id=61582963936354" target="_blank">
-            <img src="logo_wpp.png" alt="WhatsApp" class="social-icon" />
-          </a>
-          <a href="https://www.instagram.com/doluxoamesa/" target="_blank">
-            <img src="logo_insta.png" alt="Instagram" class="social-icon" />
-          </a>
-        </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; <span id="year"></span> Do Luxo á Mesa.</p>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/profile.php?id=61582963936354" target="_blank">
+          <img src="logo_wpp.png" alt="WhatsApp" class="social-icon" />
+        </a>
+        <a href="https://www.instagram.com/doluxoamesa/" target="_blank">
+          <img src="logo_insta.png" alt="Instagram" class="social-icon" />
+        </a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
   <script>
     // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // menu hamburguer
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("is-open");
+    });
+
+    // fechar menu ao clicar num link
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("is-open");
+      });
+    });
   </script>
 </body>
 </html>
+
 
 

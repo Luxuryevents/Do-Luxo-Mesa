@@ -252,6 +252,32 @@ footer p {
     @media (max-width: 900px) {
       .table-setup-grid { grid-template-columns: 1fr; }
     }
+     /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #f7efe6;
+        flex-direction: column;
+        gap: 16px;
+        padding: 12px 20px 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        display: none;
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -338,6 +364,7 @@ footer p {
   </footer>
 </body>
 </html>
+
 
 
 
